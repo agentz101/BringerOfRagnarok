@@ -7,6 +7,8 @@ public class controlTemp : MonoBehaviour
 
     private CharacterController characterController;
     public float Speed = 5f;
+    public Animator anim;
+    Vector3 move;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,14 @@ public class controlTemp : MonoBehaviour
     //WASD MOVEMENT
     void Update()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(move * Time.deltaTime * Speed);
+        Animate();
+    }
+
+    void Animate()
+    {
+        anim.SetFloat("AnimMoveX", move.x);
+        anim.SetFloat("AnimMoveZ", move.z);
     }
 }
