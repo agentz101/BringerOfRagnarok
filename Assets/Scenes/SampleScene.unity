@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 1440637305}
   - component: {fileID: 1440637304}
   m_Layer: 0
-  m_Name: FM
+  m_Name: FantasyMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
