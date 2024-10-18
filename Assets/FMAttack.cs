@@ -10,9 +10,11 @@ public class FMAttack : MonoBehaviour
     private Animator anim;
     private controlTemp PlayerMovement;
     private float cooldownTimer = Mathf.Infinity;
+    private float timeSinceLast = Mathf.Infinity;
 
     private int attackState = 0;
     private Queue<int> myQueue = new Queue<int>();
+    private float inAnimation = 0f;
 
 
 
@@ -40,19 +42,13 @@ public class FMAttack : MonoBehaviour
         {
             Attack();
         }
-       else 
-            if (Input.GetMouseButton(0) && cooldownTimer > animation2 && PlayerMovement.canAttack() && myQueue.Peek() == 1)
+       if (Input.GetMouseButton(0) && timeSinceLast < animation2 && PlayerMovement.canAttack() && myQueue.Peek() == 1)
             {
                 Attack2();
             }
-        else 
-            if (Input.GetMouseButton(0) && cooldownTimer > animation3 && PlayerMovement.canAttack() && myQueue.Peek() == 2)
+        if (Input.GetMouseButton(0) && timeSinceLast < animation3 && PlayerMovement.canAttack() && myQueue.Peek() == 2)
             {
-                Attack3();
-                anim.SetTrigger("notAttacking");
-                anim.ResetTrigger("attack");
-                anim.ResetTrigger("attack2");
-                anim.ResetTrigger("attack3");
+                Attack3(); 
             }
         
        
@@ -62,19 +58,23 @@ public class FMAttack : MonoBehaviour
             anim.ResetTrigger("attack");
             anim.ResetTrigger("attack2");
             anim.ResetTrigger("attack3");
-            //myQueue.Enqueue(0);
+            myQueue.Clear();
+            myQueue.Enqueue(0);
         }
         cooldownTimer += Time.deltaTime;
+        timeSinceLast += Time.deltaTime;
     }
 
     private void Attack3()
     {
         anim.SetTrigger("attack3");
         anim.ResetTrigger("notAttacking");
+        cooldownTimer = 0f;
+        //timeSinceLast = 0f;
         attackState = 0;
-
         myQueue.Clear();
-        myQueue.Enqueue(0);
+        myQueue.Enqueue(3);
+        
 
     }
     private void Attack2()
@@ -82,18 +82,20 @@ public class FMAttack : MonoBehaviour
         anim.SetTrigger("attack2");
         anim.ResetTrigger("notAttacking");
         attackState = 2;
+        myQueue.Clear();
         myQueue.Enqueue(2);
-        myQueue.Dequeue();
         cooldownTimer = 0f;
+        timeSinceLast = 0f;
     }
     private void Attack()
     {
         anim.SetTrigger("attack");
         anim.ResetTrigger("notAttacking");
         attackState = 1;
+        myQueue.Clear();
         myQueue.Enqueue(1);
-        myQueue.Dequeue();
         cooldownTimer = 0;
+        timeSinceLast = 0f; 
     }
 
 }
