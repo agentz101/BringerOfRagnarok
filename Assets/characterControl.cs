@@ -23,11 +23,20 @@ public class controlTemp : MonoBehaviour
         move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(move * Time.deltaTime * Speed);
         Animate();
+        if (move.x > 0.01f)
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        else if (move.x < -0.01f)
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
     }
 
     void Animate()
     {
         anim.SetFloat("AnimMoveX", move.x);
         anim.SetFloat("AnimMoveZ", move.z);
+    }
+
+    public bool canAttack()
+    {
+        return move.x == 0 && move.z == 0;
     }
 }

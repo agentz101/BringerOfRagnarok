@@ -873,6 +873,7 @@ GameObject:
   - component: {fileID: 1440637301}
   - component: {fileID: 1440637305}
   - component: {fileID: 1440637304}
+  - component: {fileID: 1440637306}
   m_Layer: 0
   m_Name: FantasyMan
   m_TagString: Untagged
@@ -942,7 +943,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 135329779, guid: b6bf0c48871f31445b928e3de09f89f1, type: 3}
+  m_Sprite: {fileID: -510684366, guid: 7c8a132d38e9d14438a87f9ccd611f6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1008,6 +1009,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   anim: {fileID: 1440637301}
+--- !u!114 &1440637306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440637300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a2ac5921480144bb38b0bdab79761c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0.3
+  animation2: 0.3
+  animation3: 0.3
 --- !u!1 &1648773292
 GameObject:
   m_ObjectHideFlags: 0
