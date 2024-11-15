@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FMAttack : MonoBehaviour
 {
@@ -15,14 +17,18 @@ public class FMAttack : MonoBehaviour
     private int attackState = 0;
     private Queue<int> myQueue = new Queue<int>();
     private float inAnimation = 0f;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
 
-
+    public int attackDamage = 1;
 
 
     //private bool attack1 = false;
     //private bool attack2 = false;
     [SerializeField] private float animation2;
     [SerializeField] private float animation3;
+    
 
     private void Awake()
     {
@@ -30,7 +36,7 @@ public class FMAttack : MonoBehaviour
         PlayerMovement = GetComponent<controlTemp>();
         myQueue.Clear();
         myQueue.Enqueue(0);
-
+        
       
 
     }
@@ -67,8 +73,11 @@ public class FMAttack : MonoBehaviour
 
     private void Attack3()
     {
+
         anim.SetTrigger("attack3");
+        
         anim.ResetTrigger("notAttacking");
+       // Damage();
         cooldownTimer = 0f;
         //timeSinceLast = 0f;
         attackState = 0;
@@ -80,7 +89,9 @@ public class FMAttack : MonoBehaviour
     private void Attack2()
     {
         anim.SetTrigger("attack2");
+       
         anim.ResetTrigger("notAttacking");
+        //Damage();
         attackState = 2;
         myQueue.Clear();
         myQueue.Enqueue(2);
@@ -90,12 +101,40 @@ public class FMAttack : MonoBehaviour
     private void Attack()
     {
         anim.SetTrigger("attack");
+        
         anim.ResetTrigger("notAttacking");
+        Damage();
         attackState = 1;
         myQueue.Clear();
         myQueue.Enqueue(1);
         cooldownTimer = 0;
         timeSinceLast = 0f; 
     }
+    public void Damage()
+    {
+        //Detect Enemies in Range
+        Vector3 hitSphere = attackPoint.position;
+        hitSphere.x += 0.5f;
+        hitSphere.y += 0.3f;
 
+        Collider[] hitEnemies = Physics.OverlapSphere(hitSphere, attackRange, enemyLayers);
+        //Apply Damage
+        //Debug.Log("Sphere Created");
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            Debug.Log("We hit " + enemy.name);
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+        }
+
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 }
