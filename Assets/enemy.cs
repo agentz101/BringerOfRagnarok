@@ -15,6 +15,11 @@ public class enemy : MonoBehaviour
     {
         currentHealth  = MaxHealth;
     }
+
+    private void Update()
+    {
+        this.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
+    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
