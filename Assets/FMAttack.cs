@@ -114,8 +114,8 @@ public class FMAttack : MonoBehaviour
     {
         //Detect Enemies in Range
         Vector3 hitSphere = attackPoint.position;
-        hitSphere.x += 0.5f;
-        hitSphere.y += 0.3f;
+       // hitSphere.x += 0.5f;
+       // hitSphere.y += 0.3f;
 
         Collider[] hitEnemies = Physics.OverlapSphere(hitSphere, attackRange, enemyLayers);
         //Apply Damage
