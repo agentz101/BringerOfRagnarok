@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
+    public void GoToLevel1Boss(){
+        SceneManager.LoadScene("level1-boss.v2");
+    }
+
     public void GoToSettingsMenu(){
         SceneManager.LoadScene("settingsMenu");
     }
