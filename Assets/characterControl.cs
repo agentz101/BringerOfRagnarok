@@ -30,7 +30,7 @@ public class controlTemp : MonoBehaviour
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
 
 
-        //this.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
+        this.transform.position = new Vector3(this.transform.position.x, 1.3f, this.transform.position.z);
     }
 
     void Animate()
