@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEditor.SceneManagement;
+//using Unity.PlasticSCM.Editor.WebApi;
+//using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 
