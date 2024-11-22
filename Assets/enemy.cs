@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
     public int MaxHealth = 2;
     int currentHealth;
+    public bool isBoss;
 
 
     public Animator animator;
@@ -31,14 +33,24 @@ public class enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         //Die Animation
-        animator.SetTrigger("isDead 0");
-        animator.SetBool("isDead", true);
+        if (!isBoss)
+        {
+            animator.SetTrigger("isDead 0");
+            animator.SetBool("isDead", true);
+        }
         //Disable the enemy.
         this.enabled = false;
         this.GetComponent<ScriptMachine>().enabled = false;
+        //yield return new WaitForSecondsRealtime(5f);
+        if (isBoss)
+        {
+            SceneManager.LoadScene("Victory");
+            Debug.Log("Killed Boss");
+        }
+        
         //Debug.Log("Enemy died");
     }
     

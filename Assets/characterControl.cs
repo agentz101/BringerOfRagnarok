@@ -10,11 +10,15 @@ public class controlTemp : MonoBehaviour
     public float Speed = 5f;
     public Animator anim;
     Vector3 move;
+    //GameObject scene;
+    //float health;
+    //float maxHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        //scene = GameObject.Find("level1-1.v2");
     }
 
     // Update is called once per frame
@@ -28,9 +32,9 @@ public class controlTemp : MonoBehaviour
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         else if (move.x < -0.01f)
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-
-
-        this.transform.position = new Vector3(this.transform.position.x, 1.3f, this.transform.position.z);
+       
+        //health = scene.GetComponent<CurrentHealth>;
+        //this.transform.position = new Vector3(this.transform.position.x, 1.3f, this.transform.position.z);
     }
 
     void Animate()

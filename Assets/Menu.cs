@@ -6,7 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("levelSelect");
+    }
+
+    public void GoToLevel1()
+    {
+        SceneManager.LoadScene("level1-1.v2");
     }
 
     public void GoToLevel1Boss(){
