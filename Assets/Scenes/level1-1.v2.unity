@@ -5901,6 +5901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  teleportSpeed: 0.35
   anim: {fileID: 1440637301}
 --- !u!114 &1440637306
 MonoBehaviour:
