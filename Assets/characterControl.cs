@@ -10,6 +10,8 @@ public class controlTemp : MonoBehaviour
     public float Speed = 5f;
     public float teleportSpeed = .01f;
     public Animator anim;
+    public int Stanima = 100;
+    public int stanimaRegainTime = 120;
     Vector3 move;
     Vector3 teleport;
     //GameObject scene;
@@ -35,10 +37,16 @@ public class controlTemp : MonoBehaviour
         else if (move.x < -0.01f)
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         teleport = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (Input.GetMouseButtonDown(1) && move != new Vector3(0, 0, 0))
+        if (Input.GetMouseButtonDown(1) && move != new Vector3(0, 0, 0) && Stanima >= 10)
         {
             characterController.Move(teleportSpeed*teleport);
+            Stanima -= 10;
         }
+        if(Time.frameCount % stanimaRegainTime == 0 && Stanima < 100)
+        {
+            Stanima += 1;
+        }
+        Debug.Log("Stanima is: " + Stanima);
         
         //health = scene.GetComponent<CurrentHealth>;
         //this.transform.position = new Vector3(this.transform.position.x, 1.3f, this.transform.position.z);

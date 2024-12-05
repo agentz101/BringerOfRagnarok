@@ -20,6 +20,7 @@ public class FMAttack : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public float lastAttack = 0f;
 
     public int attackDamage = 1;
 
@@ -103,7 +104,8 @@ public class FMAttack : MonoBehaviour
         anim.SetTrigger("attack");
         
         anim.ResetTrigger("notAttacking");
-        Damage();
+        if(Time.time - lastAttack >= .3)
+            Damage();
         attackState = 1;
         myQueue.Clear();
         myQueue.Enqueue(1);
@@ -114,6 +116,7 @@ public class FMAttack : MonoBehaviour
     {
         //Detect Enemies in Range
         Vector3 hitSphere = attackPoint.position;
+        lastAttack = Time.time;
        // hitSphere.x += 0.5f;
        // hitSphere.y += 0.3f;
 

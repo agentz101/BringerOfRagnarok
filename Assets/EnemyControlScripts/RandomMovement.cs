@@ -34,4 +34,5 @@ public class RandomMovement : MonoBehaviour
         movementDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
         movementPerSecond = movementDirection * characterVelocity;
     }
+
 }
