@@ -7,8 +7,15 @@ using UnityEngine.SceneManagement;
 public class enemy : MonoBehaviour
 {
     public int MaxHealth = 2;
-    int currentHealth;
+    public int currentHealth;
     public bool isBoss;
+
+    [SerializeField] EnemyHealthbar healthbar;
+
+    private void Awake()
+    {
+        healthbar = GetComponentInChildren<EnemyHealthbar>();
+    }
 
 
     public Animator animator;
@@ -16,6 +23,7 @@ public class enemy : MonoBehaviour
     void Start()
     {
         currentHealth  = MaxHealth;
+        healthbar.UpdateHealthbar(currentHealth, MaxHealth);
     }
 
     private void Update()
@@ -25,6 +33,7 @@ public class enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthbar.UpdateHealthbar(currentHealth, MaxHealth);
 
         //play hurt animation?
         if (currentHealth <= 0)
