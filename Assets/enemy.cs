@@ -7,15 +7,24 @@ using UnityEngine.SceneManagement;
 public class enemy : MonoBehaviour
 {
     public int MaxHealth = 2;
-    int currentHealth;
+    public int currentHealth;
     public bool isBoss;
 
+    [SerializeField] EnemyHealthbar healthbar;
+
+    private void Awake()
+    {
+        healthbar = GetComponentInChildren<EnemyHealthbar>();
+    }
+
+    public bool noVisual = false;
 
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth  = MaxHealth;
+        healthbar.UpdateHealthbar(currentHealth, MaxHealth);
     }
 
     private void Update()
@@ -25,6 +34,7 @@ public class enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthbar.UpdateHealthbar(currentHealth, MaxHealth);
 
         //play hurt animation?
         if (currentHealth <= 0)
@@ -42,8 +52,18 @@ public class enemy : MonoBehaviour
             animator.SetBool("isDead", true);
         }
         //Disable the enemy.
+        Debug.Log("Dead " + this.name);
         this.enabled = false;
-        this.GetComponent<ScriptMachine>().enabled = false;
+        
+        if (!noVisual) {
+            
+            this.GetComponent<ScriptMachine>().enabled = false;
+        }
+        else
+        {
+            this.GetComponent<RandomMovement>().enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;   
+        }
         //yield return new WaitForSecondsRealtime(5f);
         if (isBoss)
         {
