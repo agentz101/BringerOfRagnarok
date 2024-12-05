@@ -84,7 +84,9 @@ public class FMAttack : MonoBehaviour
         attackState = 0;
         myQueue.Clear();
         myQueue.Enqueue(3);
-        
+        cooldownTimer = 0f;
+        timeSinceLast = 0f;
+
 
     }
     private void Attack2()
@@ -104,8 +106,10 @@ public class FMAttack : MonoBehaviour
         anim.SetTrigger("attack");
         
         anim.ResetTrigger("notAttacking");
-        if(Time.time - lastAttack >= .3)
+        if (Time.time - lastAttack >= .5)
+        {
             Damage();
+        }
         attackState = 1;
         myQueue.Clear();
         myQueue.Enqueue(1);

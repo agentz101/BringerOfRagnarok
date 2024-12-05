@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 141588357}
   - component: {fileID: 141588356}
   - component: {fileID: 141588358}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fire_Spreadsheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,11 +585,11 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.3
   m_Height: 3
@@ -659,6 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a9426c88504304d89e80de130d21d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!43 &323446587
 Mesh:
   m_ObjectHideFlags: 0
@@ -1816,6 +1819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776802714}
+  - component: {fileID: 776802715}
   m_Layer: 6
   m_Name: Fire Spirit
   m_TagString: Untagged
@@ -1840,6 +1844,21 @@ Transform:
   - {fileID: 141588355}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &776802715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776802713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be04b92c7a414547ae27c5a3f7883e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spirit: {fileID: 1055237371}
+  Fire: {fileID: 141588354}
+  directionTime: 3
 --- !u!1 &900677156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2945,8 @@ GameObject:
   - component: {fileID: 1055237374}
   - component: {fileID: 1055237375}
   - component: {fileID: 1055237376}
+  - component: {fileID: 1055237377}
+  - component: {fileID: 1055237378}
   m_Layer: 6
   m_Name: NoobGodoter'sSpritesheet_0
   m_TagString: Untagged
@@ -3010,16 +3031,16 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 1.5
   m_Height: 2.7
   m_Direction: 1
   m_Center: {x: 0, y: 1.32, z: 0}
@@ -3035,9 +3056,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95464420e7805f040ab6a1a712461153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionChangeTime: 1.5
-  characterVelocity: 1
+  directionChangeTime: 3
+  characterVelocity: 0.5
+  waitTime: 1.5
 --- !u!114 &1055237376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055237371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a9426c88504304d89e80de130d21d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &1055237377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3046,9 +3083,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055237371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a9426c88504304d89e80de130d21d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 299bcc57292e5a04482225b4e5cc5f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 2
+  isBoss: 0
+  noVisual: 1
+  animator: {fileID: 1055237378}
+--- !u!95 &1055237378
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055237371}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3591c04cfd520b24eb216374a8b2f632, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1123425257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 1123425262}
 --- !u!114 &1123425260
 MonoBehaviour:
@@ -6082,6 +6145,7 @@ GameObject:
   - component: {fileID: 1440637310}
   - component: {fileID: 1440637309}
   - component: {fileID: 1440637308}
+  - component: {fileID: 1440637312}
   m_Layer: 3
   m_Name: FantasyMan
   m_TagString: Untagged
@@ -6304,6 +6368,29 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!136 &1440637312
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440637300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0.1, y: 0.22, z: 0}
 --- !u!1 &1567302089
 GameObject:
   m_ObjectHideFlags: 0
@@ -6363,6 +6450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 1567302094}
 --- !u!114 &1567302092
 MonoBehaviour:
@@ -6653,6 +6741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 1669143534}
 --- !u!114 &1669143532
 MonoBehaviour:
@@ -6814,6 +6903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 15
   isBoss: 1
+  noVisual: 0
   animator: {fileID: 1731481170}
 --- !u!136 &1731481167
 CapsuleCollider:
@@ -7865,6 +7955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 1911754551}
 --- !u!114 &1911754549
 MonoBehaviour:
@@ -8049,6 +8140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 1972506033}
 --- !u!114 &1972506031
 MonoBehaviour:
@@ -8334,6 +8426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 2000789027}
 --- !u!136 &2000789031
 CapsuleCollider:
@@ -8650,6 +8743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   isBoss: 0
+  noVisual: 0
   animator: {fileID: 2052780488}
 --- !u!114 &2052780486
 MonoBehaviour:

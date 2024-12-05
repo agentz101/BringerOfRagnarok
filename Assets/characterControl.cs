@@ -46,7 +46,7 @@ public class controlTemp : MonoBehaviour
         {
             Stanima += 1;
         }
-        Debug.Log("Stanima is: " + Stanima);
+        //Debug.Log("Stanima is: " + Stanima);
         
         //health = scene.GetComponent<CurrentHealth>;
         //this.transform.position = new Vector3(this.transform.position.x, 1.3f, this.transform.position.z);
