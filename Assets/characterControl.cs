@@ -8,8 +8,14 @@ public class controlTemp : MonoBehaviour
 
     private CharacterController characterController;
     public float Speed = 5f;
+    public float teleportSpeed = .01f;
     public Animator anim;
+    public int Stanima = 100;
+    public int stanimaRegainTime = 120;
+    public AudioSource audioSource2;
     Vector3 move;
+    Vector3 teleport;
+    
     //GameObject scene;
     //float health;
     //float maxHealth;
@@ -32,7 +38,20 @@ public class controlTemp : MonoBehaviour
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         else if (move.x < -0.01f)
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-       
+        teleport = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        if (Input.GetMouseButtonDown(1) && move != new Vector3(0, 0, 0) && Stanima >= 10)
+        {
+            characterController.Move(teleportSpeed*teleport);
+            Stanima -= 10;
+            audioSource2.pitch = Random.Range(1f, 1.5f);
+            audioSource2.Play();
+        }
+        if(Time.frameCount % stanimaRegainTime == 0 && Stanima < 100)
+        {
+            Stanima += 1;
+        }
+        //Debug.Log("Stanima is: " + Stanima);
+        
         //health = scene.GetComponent<CurrentHealth>;
         //this.transform.position = new Vector3(this.transform.position.x, 1.3f, this.transform.position.z);
     }
