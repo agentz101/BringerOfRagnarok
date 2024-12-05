@@ -17,6 +17,7 @@ public class enemy : MonoBehaviour
         healthbar = GetComponentInChildren<EnemyHealthbar>();
     }
 
+    public bool noVisual = false;
 
     public Animator animator;
     // Start is called before the first frame update
@@ -51,8 +52,18 @@ public class enemy : MonoBehaviour
             animator.SetBool("isDead", true);
         }
         //Disable the enemy.
+        Debug.Log("Dead " + this.name);
         this.enabled = false;
-        this.GetComponent<ScriptMachine>().enabled = false;
+        
+        if (!noVisual) {
+            
+            this.GetComponent<ScriptMachine>().enabled = false;
+        }
+        else
+        {
+            this.GetComponent<RandomMovement>().enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;   
+        }
         //yield return new WaitForSecondsRealtime(5f);
         if (isBoss)
         {

@@ -20,8 +20,11 @@ public class FMAttack : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public float lastAttack = 0f;
 
     public int attackDamage = 1;
+
+    public AudioSource audioSource1;
 
 
     //private bool attack1 = false;
@@ -39,6 +42,10 @@ public class FMAttack : MonoBehaviour
         
       
 
+    }
+    private void Start()
+    {
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -83,7 +90,9 @@ public class FMAttack : MonoBehaviour
         attackState = 0;
         myQueue.Clear();
         myQueue.Enqueue(3);
-        
+        cooldownTimer = 0f;
+        timeSinceLast = 0f;
+
 
     }
     private void Attack2()
@@ -103,7 +112,10 @@ public class FMAttack : MonoBehaviour
         anim.SetTrigger("attack");
         
         anim.ResetTrigger("notAttacking");
-        Damage();
+        if (Time.time - lastAttack >= .5)
+        {
+            Damage();
+        }
         attackState = 1;
         myQueue.Clear();
         myQueue.Enqueue(1);
@@ -114,6 +126,10 @@ public class FMAttack : MonoBehaviour
     {
         //Detect Enemies in Range
         Vector3 hitSphere = attackPoint.position;
+        lastAttack = Time.time;
+
+        audioSource1.pitch = Random.Range(1f, 1.5f);
+        audioSource1.Play();
        // hitSphere.x += 0.5f;
        // hitSphere.y += 0.3f;
 
