@@ -31,6 +31,7 @@ public class controlTemp : MonoBehaviour
     //WASD MOVEMENT
     void Update()
     {
+        
         move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(move * Time.deltaTime * Speed);
         Animate();
@@ -38,6 +39,7 @@ public class controlTemp : MonoBehaviour
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         else if (move.x < -0.01f)
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+
         teleport = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if (Input.GetMouseButtonDown(1) && move != new Vector3(0, 0, 0) && Stanima >= 10)
         {
