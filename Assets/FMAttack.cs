@@ -24,6 +24,8 @@ public class FMAttack : MonoBehaviour
 
     public int attackDamage = 1;
 
+    public AudioSource audioSource1;
+
 
     //private bool attack1 = false;
     //private bool attack2 = false;
@@ -40,6 +42,10 @@ public class FMAttack : MonoBehaviour
         
       
 
+    }
+    private void Start()
+    {
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -121,6 +127,9 @@ public class FMAttack : MonoBehaviour
         //Detect Enemies in Range
         Vector3 hitSphere = attackPoint.position;
         lastAttack = Time.time;
+
+        audioSource1.pitch = Random.Range(1f, 1.5f);
+        audioSource1.Play();
        // hitSphere.x += 0.5f;
        // hitSphere.y += 0.3f;
 

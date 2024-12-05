@@ -12,8 +12,10 @@ public class controlTemp : MonoBehaviour
     public Animator anim;
     public int Stanima = 100;
     public int stanimaRegainTime = 120;
+    public AudioSource audioSource2;
     Vector3 move;
     Vector3 teleport;
+    
     //GameObject scene;
     //float health;
     //float maxHealth;
@@ -41,6 +43,8 @@ public class controlTemp : MonoBehaviour
         {
             characterController.Move(teleportSpeed*teleport);
             Stanima -= 10;
+            audioSource2.pitch = Random.Range(1f, 1.5f);
+            audioSource2.Play();
         }
         if(Time.frameCount % stanimaRegainTime == 0 && Stanima < 100)
         {

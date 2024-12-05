@@ -52,6 +52,7 @@ public class enemy : MonoBehaviour
         else
         {
             this.GetComponent<RandomMovement>().enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;   
         }
         //yield return new WaitForSecondsRealtime(5f);
         if (isBoss)
