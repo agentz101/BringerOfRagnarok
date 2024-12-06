@@ -17,13 +17,14 @@ public class projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         if(transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z){
             DestroyProjectile();
         }
         
     }
-    void OnTrigger(Collider other){
+
+    void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             DestroyProjectile();
         }
