@@ -31,6 +31,7 @@ public class controlTemp : MonoBehaviour
     //WASD MOVEMENT
     void Update()
     {
+        
         move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(move * Time.deltaTime * Speed);
         Animate();
