@@ -9,7 +9,7 @@ public class EnemyHealthbar : MonoBehaviour
 
     public void UpdateHealthbar(float currentValue, float maxValue)
     {
-        slider.value = currentValue / maxValue;
+        slider.value = currentValue;
     }
 
     // Update is called once per frame
