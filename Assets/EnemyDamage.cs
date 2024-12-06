@@ -7,15 +7,16 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
 
-    private float variables; 
+    private float healthBar; 
     public LayerMask player;
     private float lastHit = 0f;
+    public float tickTime = .33f;
     //public GameObject healthBar = GameObject.Find("SceneVariableslvl1");
   
     // Start is called before the first frame update
     void Start()
     {
-        variables =  (float)Variables.ActiveScene.Get("CurrentHealth");
+        healthBar =  (float)Variables.ActiveScene.Get("CurrentHealth");
     }
 
     // Update is called once per frame
@@ -27,12 +28,15 @@ public class EnemyDamage : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
-            if (enemy.name == "FantasyMan" && lastHit <= Time.time-.33f)
+            //Debug.Log("We hit " + enemy.name);
+            if (enemy.name == "FantasyMan" && lastHit <= Time.time- tickTime)
             {
-                Variables.ActiveScene.Set("CurrentHealth", variables - 10);
-                variables -= 10;
-                lastHit = Time.time;
+                if (!(bool)Variables.ActiveScene.Get("ShieldActivated?"))
+                {
+                    Variables.ActiveScene.Set("CurrentHealth", healthBar- 10);
+                    healthBar -= 10;
+                    lastHit = Time.time;
+                }
             }
         }
     }

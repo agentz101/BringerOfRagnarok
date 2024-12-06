@@ -10,6 +10,7 @@ public class enemy : MonoBehaviour
     public int currentHealth;
     public bool isBoss;
     public bool noVisual;
+    public bool isRanged;
     [SerializeField] EnemyHealthbar healthbar;
 
     private void Awake()
@@ -57,8 +58,15 @@ public class enemy : MonoBehaviour
         //Die Animation
         if (!isBoss)
         {
-            animator.SetTrigger("isDead 0");
-            animator.SetBool("isDead", true);
+            if (!noVisual)
+            {
+                animator.SetTrigger("isDead 0");
+                animator.SetBool("isDead", true);
+            }
+        }
+        if (isRanged)
+        {
+            this.GetComponent<RangedEnemy>().enabled = false;
         }
         //Disable the enemy.
         Debug.Log("Dead " + this.name);

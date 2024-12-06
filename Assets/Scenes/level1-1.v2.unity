@@ -740,6 +740,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 8
+  tickTime: 0.33
 --- !u!1 &236258447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,6 +3652,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 8
+  tickTime: 0.33
 --- !u!114 &1055237377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3667,6 +3669,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 1
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1055237378}
 --- !u!95 &1055237378
@@ -3751,6 +3754,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1123425262}
 --- !u!114 &1123425260
@@ -7410,6 +7414,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1567302094}
 --- !u!114 &1567302092
@@ -7797,6 +7802,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1669143534}
 --- !u!114 &1669143532
@@ -8242,6 +8248,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 1
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1731481170}
 --- !u!136 &1731481167
@@ -9586,6 +9593,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1911754551}
 --- !u!114 &1911754549
@@ -9773,6 +9781,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1972506033}
 --- !u!114 &1972506031
@@ -9913,7 +9922,7 @@ GameObject:
   - component: {fileID: 1997566752}
   - component: {fileID: 1997566751}
   - component: {fileID: 1997566750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9953,7 +9962,8 @@ MonoBehaviour:
   MaxHealth: 2
   currentHealth: 2
   isBoss: 0
-  noVisual: 0
+  noVisual: 1
+  isRanged: 1
   healthbar: {fileID: 0}
   animator: {fileID: 0}
 --- !u!65 &1997566752
@@ -10204,6 +10214,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 2000789027}
 --- !u!136 &2000789031
@@ -10523,6 +10534,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 2052780488}
 --- !u!114 &2052780486

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,7 +11,7 @@ public class controlTemp : MonoBehaviour
     public float Speed = 5f;
     public float teleportSpeed = .01f;
     public Animator anim;
-    public int Stanima = 100;
+    public float Stanima = 100;
     public int stanimaRegainTime = 120;
     public AudioSource audioSource2;
     Vector3 move;
@@ -24,6 +25,7 @@ public class controlTemp : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        Stanima = (float) Variables.ActiveScene.Get("CurrentStanima");
         //scene = GameObject.Find("level1-1.v2");
     }
 
@@ -43,6 +45,7 @@ public class controlTemp : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && move != new Vector3(0, 0, 0) && Stanima >= 10)
         {
             characterController.Move(teleportSpeed*teleport);
+            Variables.ActiveScene.Set("CurrentStanima", Stanima - 10);
             Stanima -= 10;
             audioSource2.pitch = Random.Range(1f, 1.5f);
             audioSource2.Play();
@@ -50,6 +53,7 @@ public class controlTemp : MonoBehaviour
         if(Time.frameCount % stanimaRegainTime == 0 && Stanima < 100)
         {
             Stanima += 1;
+            Variables.ActiveScene.Set("CurrentStanima", Stanima);
         }
         //Debug.Log("Stanima is: " + Stanima);
         
