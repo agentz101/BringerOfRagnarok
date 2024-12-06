@@ -14,7 +14,10 @@ public class enemy : MonoBehaviour
 
     private void Awake()
     {
-        healthbar = GetComponentInChildren<EnemyHealthbar>();
+        if ((isBoss))
+        {
+            healthbar = GetComponentInChildren<EnemyHealthbar>();
+        }
     }
 
 
@@ -23,7 +26,10 @@ public class enemy : MonoBehaviour
     void Start()
     {
         currentHealth  = MaxHealth;
-        healthbar.UpdateHealthbar(currentHealth, MaxHealth);
+        if ((isBoss))
+        {
+            healthbar.UpdateHealthbar(currentHealth, MaxHealth);
+        }
     }
 
     private void Update()
@@ -33,7 +39,11 @@ public class enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthbar.UpdateHealthbar(currentHealth, MaxHealth);
+        if ((isBoss))
+        {
+            healthbar.UpdateHealthbar(currentHealth, MaxHealth);
+        }
+        
 
         //play hurt animation?
         if (currentHealth <= 0)

@@ -17,7 +17,7 @@ public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Character").transform;
         timeBtwShots = startTimeBtwShots;
     }
     // Update is called once per frame
