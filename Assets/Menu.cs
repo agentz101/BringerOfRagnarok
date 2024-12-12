@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void GoToLevel1Boss(){
-        SceneManager.LoadScene("level1-boss.v2");
+        SceneManager.LoadScene("level1-2.v3");
     }
 
     public void GoToSettingsMenu(){
