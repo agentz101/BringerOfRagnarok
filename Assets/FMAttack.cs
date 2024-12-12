@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 //using Unity.PlasticSCM.Editor.WebApi;
 //using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -51,15 +53,15 @@ public class FMAttack : MonoBehaviour
     private void Update()
     {
  
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && PlayerMovement.canAttack() && myQueue.Peek() == 0)
+        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && (PlayerMovement.canAttack() || (bool)Variables.ActiveScene.Get("MovementActive?")) && myQueue.Peek() == 0)
         {
             Attack();
         }
-       if (Input.GetMouseButton(0) && timeSinceLast < animation2 && PlayerMovement.canAttack() && myQueue.Peek() == 1)
+       if (Input.GetMouseButton(0) && timeSinceLast < animation2 && (PlayerMovement.canAttack() || (bool)Variables.ActiveScene.Get("MovementActive?")) && myQueue.Peek() == 1)
             {
                 Attack2();
             }
-        if (Input.GetMouseButton(0) && timeSinceLast < animation3 && PlayerMovement.canAttack() && myQueue.Peek() == 2)
+        if (Input.GetMouseButton(0) && timeSinceLast < animation3 && (PlayerMovement.canAttack()  || (bool)Variables.ActiveScene.Get("MovementActive?")) && myQueue.Peek() == 2)
             {
                 Attack3(); 
             }

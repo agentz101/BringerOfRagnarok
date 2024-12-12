@@ -62,7 +62,9 @@ public class enemy : MonoBehaviour
             {
                 animator.SetTrigger("isDead 0");
                 animator.SetBool("isDead", true);
+            
             }
+            
         }
         if (isRanged)
         {
