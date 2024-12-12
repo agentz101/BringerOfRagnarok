@@ -939,7 +939,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1292125770}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: GoToLevel1Boss
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
