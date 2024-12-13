@@ -52,6 +52,10 @@ public class controlTemp : MonoBehaviour
         }
         if(Time.frameCount % stanimaRegainTime == 0 && Stanima < 100)
         {
+            if ((bool)Variables.ActiveScene.Get("MovementActive?"))
+            {
+                Stanima += 1;
+            }
             Stanima += 1;
             Variables.ActiveScene.Set("CurrentStamina", Stanima);
         }
