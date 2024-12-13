@@ -10,6 +10,7 @@ public class enemy : MonoBehaviour
     public int currentHealth;
     public bool isBoss;
     public bool noVisual;
+    public bool noAnim;
     public bool isRanged;
     [SerializeField] EnemyHealthbar healthbar;
 
@@ -58,7 +59,7 @@ public class enemy : MonoBehaviour
         //Die Animation
         if (!isBoss)
         {
-            if (!noVisual)
+            if (!noAnim)
             {
                 animator.SetTrigger("isDead 0");
                 animator.SetBool("isDead", true);

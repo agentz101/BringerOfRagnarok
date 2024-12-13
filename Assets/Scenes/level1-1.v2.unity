@@ -403,6 +403,7 @@ MonoBehaviour:
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"ShieldActivated?","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"CurrentStamina","value":{"$content":100.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"MaxStamina","value":{"$content":100.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"MovementActive?","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
 --- !u!4 &41581666
@@ -863,6 +864,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 1
+  noAnim: 0
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 87282163}
@@ -1828,6 +1830,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 1
+  noAnim: 1
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 277845516}
@@ -2159,9 +2162,10 @@ MonoBehaviour:
   currentHealth: 2
   isBoss: 0
   noVisual: 1
+  noAnim: 0
   isRanged: 1
   healthbar: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 327408736}
 --- !u!65 &327408732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2278,7 +2282,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327408729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 321e7356fa5193b469a2097a8a84cb23, type: 3}
   m_Name: 
@@ -3274,9 +3278,10 @@ MonoBehaviour:
   currentHealth: 2
   isBoss: 0
   noVisual: 1
+  noAnim: 0
   isRanged: 1
   healthbar: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 546972983}
 --- !u!65 &546972979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3393,7 +3398,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546972976}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 321e7356fa5193b469a2097a8a84cb23, type: 3}
   m_Name: 
@@ -5430,6 +5435,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 1
+  noAnim: 1
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1055237378}
@@ -5618,6 +5624,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  noAnim: 0
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1123425262}
@@ -9093,7 +9100,6 @@ GameObject:
   - component: {fileID: 1440637307}
   - component: {fileID: 1440637311}
   - component: {fileID: 1440637310}
-  - component: {fileID: 1440637309}
   - component: {fileID: 1440637308}
   - component: {fileID: 1440637312}
   - component: {fileID: 1440637313}
@@ -9279,21 +9285,6 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: e395870f39272844aaee5aae1b6ea6aa, type: 2}
---- !u!114 &1440637309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440637300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe58df89b5b74a97a123b5ed2b70422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":null,"embed":null}}'
-    _objectReferences: []
 --- !u!114 &1440637310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10216,6 +10207,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  noAnim: 0
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1669143534}
@@ -10695,6 +10687,7 @@ MonoBehaviour:
   currentHealth: 15
   isBoss: 1
   noVisual: 0
+  noAnim: 0
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 1731481170}
@@ -12886,9 +12879,10 @@ MonoBehaviour:
   currentHealth: 2
   isBoss: 0
   noVisual: 1
+  noAnim: 0
   isRanged: 1
   healthbar: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 1997566757}
 --- !u!65 &1997566752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13005,7 +12999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997566749}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 321e7356fa5193b469a2097a8a84cb23, type: 3}
   m_Name: 
@@ -13176,6 +13170,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 0
+  noAnim: 0
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 2000789027}
@@ -13329,6 +13324,7 @@ MonoBehaviour:
   currentHealth: 0
   isBoss: 0
   noVisual: 1
+  noAnim: 1
   isRanged: 0
   healthbar: {fileID: 0}
   animator: {fileID: 2065154627}

@@ -50,13 +50,17 @@ public class controlTemp : MonoBehaviour
             audioSource2.pitch = Random.Range(1f, 1.5f);
             audioSource2.Play();
         }
+
         if(Time.frameCount % stanimaRegainTime == 0 && Stanima < 100)
         {
             if ((bool)Variables.ActiveScene.Get("MovementActive?"))
             {
+                Stanima += 2;
+            }
+            else
+            {
                 Stanima += 1;
             }
-            Stanima += 1;
             Variables.ActiveScene.Set("CurrentStamina", Stanima);
         }
         //Debug.Log("Stanima is: " + Stanima);
