@@ -8644,7 +8644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 15
-  currentHealth: 10
+  currentHealth: 15
   isBoss: 1
   noVisual: 0
   isRanged: 0
